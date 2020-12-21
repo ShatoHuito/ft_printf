@@ -2,8 +2,9 @@
 #define FT_PRINTF_H
 
 # include <stdarg.h>
+# include "libft/libft.h"
 
-typedef struct	s_struct
+typedef struct	s_args
 {
 	 int minus;
 	 int plus;
@@ -12,5 +13,6 @@ typedef struct	s_struct
 }				t_args;
 
 int ft_printf(const char *inpt, ...);
+void ft_print_char(int c);
 
 #endif

@@ -197,6 +197,60 @@ ft_printf.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.s
 .PHONY : ft_printf.c.s
 
+libft/ft_putchar_fd.o: libft/ft_putchar_fd.c.o
+
+.PHONY : libft/ft_putchar_fd.o
+
+# target to build an object file
+libft/ft_putchar_fd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o
+.PHONY : libft/ft_putchar_fd.c.o
+
+libft/ft_putchar_fd.i: libft/ft_putchar_fd.c.i
+
+.PHONY : libft/ft_putchar_fd.i
+
+# target to preprocess a source file
+libft/ft_putchar_fd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.i
+.PHONY : libft/ft_putchar_fd.c.i
+
+libft/ft_putchar_fd.s: libft/ft_putchar_fd.c.s
+
+.PHONY : libft/ft_putchar_fd.s
+
+# target to generate assembly for a file
+libft/ft_putchar_fd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.s
+.PHONY : libft/ft_putchar_fd.c.s
+
+libft/ft_strchr.o: libft/ft_strchr.c.o
+
+.PHONY : libft/ft_strchr.o
+
+# target to build an object file
+libft/ft_strchr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strchr.c.o
+.PHONY : libft/ft_strchr.c.o
+
+libft/ft_strchr.i: libft/ft_strchr.c.i
+
+.PHONY : libft/ft_strchr.i
+
+# target to preprocess a source file
+libft/ft_strchr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strchr.c.i
+.PHONY : libft/ft_strchr.c.i
+
+libft/ft_strchr.s: libft/ft_strchr.c.s
+
+.PHONY : libft/ft_strchr.s
+
+# target to generate assembly for a file
+libft/ft_strchr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strchr.c.s
+.PHONY : libft/ft_strchr.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +266,12 @@ help:
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"
+	@echo "... libft/ft_putchar_fd.o"
+	@echo "... libft/ft_putchar_fd.i"
+	@echo "... libft/ft_putchar_fd.s"
+	@echo "... libft/ft_strchr.o"
+	@echo "... libft/ft_strchr.i"
+	@echo "... libft/ft_strchr.s"
 .PHONY : help
 
 

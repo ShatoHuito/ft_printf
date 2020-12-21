@@ -87,6 +87,12 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/ft_printf.h">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_putchar_fd.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strchr.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
