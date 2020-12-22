@@ -3,39 +3,91 @@
 
 t_args ft_strct_inicial(t_args strct)
 {
+	strct.zero = 0;
 	strct.len = 0;
 	strct.minus = 0;
 	strct.plus = 0;
 	strct.type = 0;
+	strct.accuracy = 0;
+	strct.accuracy_flag = 0;
+	strct.width_flag = 0;
+	strct.width = 0;
 
 	return (strct);
 }
-t_args flag_inicial(int* p, t_args strct, const char *inpt)
+t_args flag_inicial(t_args strct, const char *inpt)
 {
 	char *flags;
-	flags = "cspdiuxX%";
-	*p += 1;
-	strct.type = *ft_strchr(flags, inpt[*p]);
+
+	flags = "-0*";
+	strct.i++;
+	while(ft_strchr(flags, inpt[strct.i]))
+	{
+		if(inpt[strct.i] == '-')
+			strct.minus = 1;
+		if(inpt[strct.i++] == '0')
+			strct.zero = 1;
+	}
 	return (strct);
 }
 
-void type_inicial(const char *inpt, t_args strct, va_list args)
+t_args width_inicial(t_args strct, const char *inpt, va_list args)
 {
-	int i;
-	int c;
-
-	i = 0;
-	while (inpt[i])
+	if(inpt[strct.i] == '*')
+		strct.width = va_arg(args, int);
+	while(ft_isdigit(inpt[strct.i]))
 	{
-		while (inpt[i] != '%')
+		strct.width = strct.width * 10 + (inpt[strct.i] - 48);
+		strct.i++;
+	}
+	return (strct);
+}
+
+t_args accuracy_inicial (t_args strct, const char *inpt, va_list args)
+{
+	if(inpt[strct.i] == '.')
+	{
+		strct.i++;
+		if(inpt[strct.i] == '*')
+			strct.accuracy = va_arg(args, int);
+		while (ft_isdigit(inpt[strct.i]))
 		{
-			ft_putchar_fd(inpt[i], 1);
-			i++;
+			strct.accuracy = strct.accuracy * 10 + (inpt[strct.i] - 48);
+			strct.i++;
 		}
-		strct = flag_inicial(&i, strct, inpt);
-		if (strct.type == 'c' && (c = va_arg(args, int)))
-			ft_print_char(c);
-		i++;
+	}
+	return (strct);
+}
+
+t_args type_inicial (t_args strct, const char *inpt)
+{
+	char *types;
+
+	types = "cspdiuxX%";
+	strct.type = *ft_strchr(types, inpt[strct.i]);
+	strct.i += 1;
+	return (strct);
+}
+
+void print_inicial(t_args strct, va_list args)
+{
+	if(strct.type == 'c')
+		ft_print_char(va_arg(args, int), strct);
+}
+
+void primary_inicial(const char *inpt, t_args strct, va_list args)
+{
+	strct.i = 0;
+	
+	while (inpt[strct.i])
+	{
+		while (inpt[strct.i] != '%')
+			ft_putchar_fd(inpt[strct.i++], 1);
+		strct = flag_inicial(strct, inpt);
+		strct = width_inicial(strct, inpt, args);
+		strct = accuracy_inicial(strct, inpt, args);
+		strct = type_inicial(strct, inpt);
+		print_inicial(strct, args);
 	}
 }
 
@@ -46,14 +98,14 @@ int ft_printf(const char *inpt, ...)
 
 	va_start(args, inpt);
 	strct = ft_strct_inicial(strct);
-	type_inicial(inpt, strct, args);
+	primary_inicial(inpt, strct, args);
 	return (0);
 }
 
 #include <stdio.h>
 int main(void)
 {
-	ft_printf("qwerty %c %c", 'A', 'b');
-	printf("\nqwerty %c %c", 'A', 'b');
+	ft_printf("qwerty %-5c", 'A');
+	printf("\nqwerty %-5c", 'A');
 	return 0;
 }

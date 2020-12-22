@@ -10,9 +10,15 @@ typedef struct	s_args
 	 int plus;
 	 char type;
 	 int len;
+	 int zero;
+	 int width_flag;
+	 int accuracy_flag;
+	 int width;
+	 int accuracy;
+	 int i;
 }				t_args;
 
 int ft_printf(const char *inpt, ...);
-void ft_print_char(int c);
+void ft_print_char(int c, t_args strct);
 
 #endif

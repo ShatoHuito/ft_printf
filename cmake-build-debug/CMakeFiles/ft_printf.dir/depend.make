@@ -9,6 +9,9 @@ CMakeFiles/ft_printf.dir/ft_printf.c.o: ../ft_printf.c
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../ft_printf.h
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../libft/libft.h
 
+CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o: ../libft/ft_isdigit.c
+CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o: ../libft/libft.h
+
 CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o: ../libft/ft_putchar_fd.c
 CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o: ../libft/libft.h
 
