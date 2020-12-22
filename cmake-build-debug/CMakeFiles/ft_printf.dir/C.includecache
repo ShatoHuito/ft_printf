@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/gbrittan/CLionProjects/My_printf/char.c
+/Users/gbrittan/CLionProjects/My_printf/ft_printf.c
 ft_printf.h
 /Users/gbrittan/CLionProjects/My_printf/ft_printf.h
+stdio.h
+-
 
 /Users/gbrittan/CLionProjects/My_printf/ft_printf.h
 stdarg.h

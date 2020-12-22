@@ -19,7 +19,7 @@ t_args flag_inicial(t_args strct, const char *inpt)
 {
 	char *flags;
 
-	flags = "-0*";
+	flags = "-0";
 	strct.i++;
 	while(ft_strchr(flags, inpt[strct.i]))
 	{
@@ -34,12 +34,16 @@ t_args flag_inicial(t_args strct, const char *inpt)
 t_args width_inicial(t_args strct, const char *inpt, va_list args)
 {
 	if(inpt[strct.i] == '*')
-		strct.width = va_arg(args, int);
-	while(ft_isdigit(inpt[strct.i]))
 	{
-		strct.width = strct.width * 10 + (inpt[strct.i] - 48);
+		strct.width = va_arg(args, int);
 		strct.i++;
 	}
+	else
+		while(ft_isdigit(inpt[strct.i]))
+		{
+			strct.width = strct.width * 10 + (inpt[strct.i] - 48);
+			strct.i++;
+		}
 	return (strct);
 }
 
@@ -81,13 +85,17 @@ void primary_inicial(const char *inpt, t_args strct, va_list args)
 	
 	while (inpt[strct.i])
 	{
-		while (inpt[strct.i] != '%')
+		while (inpt[strct.i] != '%' && inpt[strct.i])
 			ft_putchar_fd(inpt[strct.i++], 1);
-		strct = flag_inicial(strct, inpt);
-		strct = width_inicial(strct, inpt, args);
-		strct = accuracy_inicial(strct, inpt, args);
-		strct = type_inicial(strct, inpt);
-		print_inicial(strct, args);
+		strct = ft_strct_inicial(strct);
+		if(inpt[strct.i])
+		{
+			strct = flag_inicial(strct, inpt);
+			strct = width_inicial(strct, inpt, args);
+			strct = accuracy_inicial(strct, inpt, args);
+			strct = type_inicial(strct, inpt);
+			print_inicial(strct, args);
+		}
 	}
 }
 
@@ -105,7 +113,7 @@ int ft_printf(const char *inpt, ...)
 #include <stdio.h>
 int main(void)
 {
-	ft_printf("qwerty %-5c", 'A');
-	printf("\nqwerty %-5c", 'A');
+	ft_printf("qwerty %-*c| qwerty %5c", 5, 'A', 'B');
+	printf("\nqwerty %-*c| qwerty %5c", 5, 'A', 'B');
 	return 0;
 }
