@@ -93,7 +93,16 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_putchar_fd.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_putstr_fd.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strchr.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strlen.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/string.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/CMakeLists.txt">

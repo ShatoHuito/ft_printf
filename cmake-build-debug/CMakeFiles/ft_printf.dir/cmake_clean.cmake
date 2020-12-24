@@ -3,7 +3,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_printf.c.o"
   "CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o"
   "CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o"
+  "CMakeFiles/ft_printf.dir/libft/ft_putstr_fd.c.o"
   "CMakeFiles/ft_printf.dir/libft/ft_strchr.c.o"
+  "CMakeFiles/ft_printf.dir/libft/ft_strlen.c.o"
+  "CMakeFiles/ft_printf.dir/string.c.o"
   "ft_printf"
   "ft_printf.pdb"
 )

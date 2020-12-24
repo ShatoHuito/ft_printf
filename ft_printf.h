@@ -20,5 +20,6 @@ typedef struct	s_args
 
 int ft_printf(const char *inpt, ...);
 void ft_print_char(int c, t_args strct);
+void ft_print_string(char *str, t_args strct);
 
 #endif

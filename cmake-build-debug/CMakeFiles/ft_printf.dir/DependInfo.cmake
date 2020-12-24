@@ -8,7 +8,10 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/gbrittan/CLionProjects/My_printf/ft_printf.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
   "/Users/gbrittan/CLionProjects/My_printf/libft/ft_isdigit.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o"
   "/Users/gbrittan/CLionProjects/My_printf/libft/ft_putchar_fd.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o"
+  "/Users/gbrittan/CLionProjects/My_printf/libft/ft_putstr_fd.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_putstr_fd.c.o"
   "/Users/gbrittan/CLionProjects/My_printf/libft/ft_strchr.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_strchr.c.o"
+  "/Users/gbrittan/CLionProjects/My_printf/libft/ft_strlen.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_strlen.c.o"
+  "/Users/gbrittan/CLionProjects/My_printf/string.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/string.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

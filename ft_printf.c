@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include <stdio.h>
 
 
 t_args ft_strct_inicial(t_args strct)
@@ -51,14 +52,19 @@ t_args accuracy_inicial (t_args strct, const char *inpt, va_list args)
 {
 	if(inpt[strct.i] == '.')
 	{
+		strct.accuracy_flag = 1;
 		strct.i++;
 		if(inpt[strct.i] == '*')
-			strct.accuracy = va_arg(args, int);
-		while (ft_isdigit(inpt[strct.i]))
 		{
-			strct.accuracy = strct.accuracy * 10 + (inpt[strct.i] - 48);
+			strct.accuracy = va_arg(args, int);
 			strct.i++;
 		}
+		else
+			while (ft_isdigit(inpt[strct.i]))
+			{
+				strct.accuracy = strct.accuracy * 10 + (inpt[strct.i] - 48);
+				strct.i++;
+			}
 	}
 	return (strct);
 }
@@ -69,7 +75,7 @@ t_args type_inicial (t_args strct, const char *inpt)
 
 	types = "cspdiuxX%";
 	strct.type = *ft_strchr(types, inpt[strct.i]);
-	strct.i += 1;
+	strct.i++;
 	return (strct);
 }
 
@@ -77,6 +83,8 @@ void print_inicial(t_args strct, va_list args)
 {
 	if(strct.type == 'c')
 		ft_print_char(va_arg(args, int), strct);
+	if(strct.type == 's')
+		ft_print_string(va_arg(args, char *), strct);
 }
 
 void primary_inicial(const char *inpt, t_args strct, va_list args)
@@ -110,10 +118,13 @@ int ft_printf(const char *inpt, ...)
 	return (0);
 }
 
-#include <stdio.h>
+
 int main(void)
 {
-	ft_printf("qwerty %-*c| qwerty %5c", 5, 'A', 'B');
-	printf("\nqwerty %-*c| qwerty %5c", 5, 'A', 'B');
+	char x = 1;
+	printf("qwerty %d", &x);
+	setbuf(stdout, NULL);
+	ft_printf("\nqwerty %.*s|", 4, "ZXCVBN");
+
 	return 0;
 }

@@ -15,6 +15,16 @@ CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o: ../libft/ft_putchar_fd.c
 CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o: ../libft/libft.h
 
+CMakeFiles/ft_printf.dir/libft/ft_putstr_fd.c.o: ../libft/ft_putstr_fd.c
+CMakeFiles/ft_printf.dir/libft/ft_putstr_fd.c.o: ../libft/libft.h
+
 CMakeFiles/ft_printf.dir/libft/ft_strchr.c.o: ../libft/ft_strchr.c
 CMakeFiles/ft_printf.dir/libft/ft_strchr.c.o: ../libft/libft.h
+
+CMakeFiles/ft_printf.dir/libft/ft_strlen.c.o: ../libft/ft_strlen.c
+CMakeFiles/ft_printf.dir/libft/ft_strlen.c.o: ../libft/libft.h
+
+CMakeFiles/ft_printf.dir/string.c.o: ../ft_printf.h
+CMakeFiles/ft_printf.dir/string.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/string.c.o: ../string.c
 
