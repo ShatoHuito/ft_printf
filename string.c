@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void ft_print_string(char *str, t_args strct)
 {
@@ -8,7 +8,7 @@ void ft_print_string(char *str, t_args strct)
 	strct.width -= ft_strlen(str);
 	while (!(strct.minus) && strct.width > 0 && strct.width--)
 		ft_putchar_fd(' ', 1);
-	if(!(strct.accuracy_flag))
+	if(!(strct.acc_fl))
 		ft_putstr_fd(str, 1);
 	else
 		while(strct.accuracy && strct.accuracy--)
@@ -16,4 +16,75 @@ void ft_print_string(char *str, t_args strct)
 	while (strct.minus && strct.width > 0 && strct.width--)
 		ft_putchar_fd(' ', 1);
 }
+
+void ft_print_x(int c, t_args strct)
+{
+	int d;
+	int i;
+
+	d = c;
+	i = 1;
+	while((c / 16) > 0 && i++)
+		c = c / 16;
+	char str[i];
+	strct.width -= i;
+	strct.accuracy -= i;
+	i--;
+	while (i >= 0)
+	{
+		if(d % 16 < 10)
+			str[i] = (d % 16) + 48;
+		else
+			str[i] = (d % 16) + 87;
+		i--;
+		d = d / 16;
+	}
+	while (strct.acc_fl && strct.accuracy >= 0 && strct.accuracy--)
+		ft_putchar_fd('0', 1);
+	if(strct.zero)
+		while (strct.zero && strct.width >= 0 && strct.width--)
+			ft_putchar_fd('0', 1);
+	else
+		while (!(strct.minus) && strct.width >= 0 && strct.width--)
+			ft_putchar_fd(' ', 1);
+	ft_putstr_fd(str, 1);
+	while (strct.minus && strct.width >= 0 && strct.width--)
+		ft_putchar_fd(' ', 1);
+}
+
+void ft_print_X(int c, t_args strct)
+{
+	int d;
+	int i;
+
+	d = c;
+	i = 1;
+	while((c / 16) > 0 && i++)
+		c = c / 16;
+	char str[i];
+	strct.width -= i;
+	strct.accuracy -= i;
+	i--;
+	while (i >= 0)
+	{
+		if(d % 16 < 10)
+			str[i] = (d % 16) + 48;
+		else
+			str[i] = (d % 16) + 55;
+		i--;
+		d = d / 16;
+	}
+	while (strct.acc_fl && strct.accuracy >= 0 && strct.accuracy--)
+		ft_putchar_fd('0', 1);
+	if(strct.zero)
+		while (strct.zero && strct.width >= 0 && strct.width--)
+			ft_putchar_fd('0', 1);
+	else
+		while (!(strct.minus) && strct.width >= 0 && strct.width--)
+			ft_putchar_fd(' ', 1);
+	ft_putstr_fd(str, 1);
+	while (strct.minus && strct.width >= 0 && strct.width--)
+		ft_putchar_fd(' ', 1);
+}
+
 

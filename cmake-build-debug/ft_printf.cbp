@@ -81,16 +81,16 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/char.c">
 			<Option target="ft_printf"/>
 		</Unit>
-		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/ft_printf.c">
-			<Option target="ft_printf"/>
-		</Unit>
-		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/ft_printf.h">
-			<Option target="ft_printf"/>
-		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_isdigit.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_itoa.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_putchar_fd.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_putnbr_fd.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_putstr_fd.c">
@@ -99,7 +99,19 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strchr.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strcpy.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strdup.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_strlen.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libftprintf.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libftprintf.h">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/string.c">

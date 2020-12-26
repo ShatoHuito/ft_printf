@@ -170,33 +170,6 @@ char.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/char.c.s
 .PHONY : char.c.s
 
-ft_printf.o: ft_printf.c.o
-
-.PHONY : ft_printf.o
-
-# target to build an object file
-ft_printf.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.o
-.PHONY : ft_printf.c.o
-
-ft_printf.i: ft_printf.c.i
-
-.PHONY : ft_printf.i
-
-# target to preprocess a source file
-ft_printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.i
-.PHONY : ft_printf.c.i
-
-ft_printf.s: ft_printf.c.s
-
-.PHONY : ft_printf.s
-
-# target to generate assembly for a file
-ft_printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.s
-.PHONY : ft_printf.c.s
-
 libft/ft_isdigit.o: libft/ft_isdigit.c.o
 
 .PHONY : libft/ft_isdigit.o
@@ -224,6 +197,33 @@ libft/ft_isdigit.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.s
 .PHONY : libft/ft_isdigit.c.s
 
+libft/ft_itoa.o: libft/ft_itoa.c.o
+
+.PHONY : libft/ft_itoa.o
+
+# target to build an object file
+libft/ft_itoa.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_itoa.c.o
+.PHONY : libft/ft_itoa.c.o
+
+libft/ft_itoa.i: libft/ft_itoa.c.i
+
+.PHONY : libft/ft_itoa.i
+
+# target to preprocess a source file
+libft/ft_itoa.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_itoa.c.i
+.PHONY : libft/ft_itoa.c.i
+
+libft/ft_itoa.s: libft/ft_itoa.c.s
+
+.PHONY : libft/ft_itoa.s
+
+# target to generate assembly for a file
+libft/ft_itoa.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_itoa.c.s
+.PHONY : libft/ft_itoa.c.s
+
 libft/ft_putchar_fd.o: libft/ft_putchar_fd.c.o
 
 .PHONY : libft/ft_putchar_fd.o
@@ -250,6 +250,33 @@ libft/ft_putchar_fd.s: libft/ft_putchar_fd.c.s
 libft/ft_putchar_fd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.s
 .PHONY : libft/ft_putchar_fd.c.s
+
+libft/ft_putnbr_fd.o: libft/ft_putnbr_fd.c.o
+
+.PHONY : libft/ft_putnbr_fd.o
+
+# target to build an object file
+libft/ft_putnbr_fd.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr_fd.c.o
+.PHONY : libft/ft_putnbr_fd.c.o
+
+libft/ft_putnbr_fd.i: libft/ft_putnbr_fd.c.i
+
+.PHONY : libft/ft_putnbr_fd.i
+
+# target to preprocess a source file
+libft/ft_putnbr_fd.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr_fd.c.i
+.PHONY : libft/ft_putnbr_fd.c.i
+
+libft/ft_putnbr_fd.s: libft/ft_putnbr_fd.c.s
+
+.PHONY : libft/ft_putnbr_fd.s
+
+# target to generate assembly for a file
+libft/ft_putnbr_fd.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_putnbr_fd.c.s
+.PHONY : libft/ft_putnbr_fd.c.s
 
 libft/ft_putstr_fd.o: libft/ft_putstr_fd.c.o
 
@@ -305,6 +332,60 @@ libft/ft_strchr.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strchr.c.s
 .PHONY : libft/ft_strchr.c.s
 
+libft/ft_strcpy.o: libft/ft_strcpy.c.o
+
+.PHONY : libft/ft_strcpy.o
+
+# target to build an object file
+libft/ft_strcpy.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strcpy.c.o
+.PHONY : libft/ft_strcpy.c.o
+
+libft/ft_strcpy.i: libft/ft_strcpy.c.i
+
+.PHONY : libft/ft_strcpy.i
+
+# target to preprocess a source file
+libft/ft_strcpy.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strcpy.c.i
+.PHONY : libft/ft_strcpy.c.i
+
+libft/ft_strcpy.s: libft/ft_strcpy.c.s
+
+.PHONY : libft/ft_strcpy.s
+
+# target to generate assembly for a file
+libft/ft_strcpy.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strcpy.c.s
+.PHONY : libft/ft_strcpy.c.s
+
+libft/ft_strdup.o: libft/ft_strdup.c.o
+
+.PHONY : libft/ft_strdup.o
+
+# target to build an object file
+libft/ft_strdup.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strdup.c.o
+.PHONY : libft/ft_strdup.c.o
+
+libft/ft_strdup.i: libft/ft_strdup.c.i
+
+.PHONY : libft/ft_strdup.i
+
+# target to preprocess a source file
+libft/ft_strdup.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strdup.c.i
+.PHONY : libft/ft_strdup.c.i
+
+libft/ft_strdup.s: libft/ft_strdup.c.s
+
+.PHONY : libft/ft_strdup.s
+
+# target to generate assembly for a file
+libft/ft_strdup.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strdup.c.s
+.PHONY : libft/ft_strdup.c.s
+
 libft/ft_strlen.o: libft/ft_strlen.c.o
 
 .PHONY : libft/ft_strlen.o
@@ -331,6 +412,33 @@ libft/ft_strlen.s: libft/ft_strlen.c.s
 libft/ft_strlen.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libft/ft_strlen.c.s
 .PHONY : libft/ft_strlen.c.s
+
+libftprintf.o: libftprintf.c.o
+
+.PHONY : libftprintf.o
+
+# target to build an object file
+libftprintf.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libftprintf.c.o
+.PHONY : libftprintf.c.o
+
+libftprintf.i: libftprintf.c.i
+
+.PHONY : libftprintf.i
+
+# target to preprocess a source file
+libftprintf.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libftprintf.c.i
+.PHONY : libftprintf.c.i
+
+libftprintf.s: libftprintf.c.s
+
+.PHONY : libftprintf.s
+
+# target to generate assembly for a file
+libftprintf.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libftprintf.c.s
+.PHONY : libftprintf.c.s
 
 string.o: string.c.o
 
@@ -371,24 +479,36 @@ help:
 	@echo "... char.o"
 	@echo "... char.i"
 	@echo "... char.s"
-	@echo "... ft_printf.o"
-	@echo "... ft_printf.i"
-	@echo "... ft_printf.s"
 	@echo "... libft/ft_isdigit.o"
 	@echo "... libft/ft_isdigit.i"
 	@echo "... libft/ft_isdigit.s"
+	@echo "... libft/ft_itoa.o"
+	@echo "... libft/ft_itoa.i"
+	@echo "... libft/ft_itoa.s"
 	@echo "... libft/ft_putchar_fd.o"
 	@echo "... libft/ft_putchar_fd.i"
 	@echo "... libft/ft_putchar_fd.s"
+	@echo "... libft/ft_putnbr_fd.o"
+	@echo "... libft/ft_putnbr_fd.i"
+	@echo "... libft/ft_putnbr_fd.s"
 	@echo "... libft/ft_putstr_fd.o"
 	@echo "... libft/ft_putstr_fd.i"
 	@echo "... libft/ft_putstr_fd.s"
 	@echo "... libft/ft_strchr.o"
 	@echo "... libft/ft_strchr.i"
 	@echo "... libft/ft_strchr.s"
+	@echo "... libft/ft_strcpy.o"
+	@echo "... libft/ft_strcpy.i"
+	@echo "... libft/ft_strcpy.s"
+	@echo "... libft/ft_strdup.o"
+	@echo "... libft/ft_strdup.i"
+	@echo "... libft/ft_strdup.s"
 	@echo "... libft/ft_strlen.o"
 	@echo "... libft/ft_strlen.i"
 	@echo "... libft/ft_strlen.s"
+	@echo "... libftprintf.o"
+	@echo "... libftprintf.i"
+	@echo "... libftprintf.s"
 	@echo "... string.o"
 	@echo "... string.i"
 	@echo "... string.s"

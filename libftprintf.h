@@ -1,5 +1,5 @@
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#ifndef LIBFTPRINTF
+#define LIBFTPRINTF
 
 # include <stdarg.h>
 # include "libft/libft.h"
@@ -12,7 +12,7 @@ typedef struct	s_args
 	 int len;
 	 int zero;
 	 int width_flag;
-	 int accuracy_flag;
+	 int acc_fl;
 	 int width;
 	 int accuracy;
 	 int i;
@@ -21,5 +21,10 @@ typedef struct	s_args
 int ft_printf(const char *inpt, ...);
 void ft_print_char(int c, t_args strct);
 void ft_print_string(char *str, t_args strct);
+void ft_print_p(unsigned long long int c);
+void ft_print_d(int c, t_args strct);
+void ft_print_u(unsigned int c, t_args strct);
+void ft_print_x(int c, t_args strct);
+void ft_print_X(int c, t_args strct);
 
 #endif
