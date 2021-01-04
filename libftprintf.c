@@ -6,13 +6,11 @@ t_args ft_strct_inicial(void)
 {
 	t_args strct;
 	strct.zero = 0;
-	strct.len = 0;
+	strct.retval = 0;
 	strct.minus = 0;
-	strct.plus = 0;
 	strct.type = 0;
 	strct.accuracy = 0;
 	strct.acc_fl = 0;
-	strct.width_flag = 0;
 	strct.width = 0;
 
 	return (strct);
@@ -21,13 +19,10 @@ t_args ft_strct_inicial(void)
 t_args ft_strct_zero(t_args strct)
 {
 	strct.zero = 0;
-	strct.len = 0;
 	strct.minus = 0;
-	strct.plus = 0;
 	strct.type = 0;
 	strct.accuracy = 0;
 	strct.acc_fl = 0;
-	strct.width_flag = 0;
 	strct.width = 0;
 
 	return (strct);
@@ -43,7 +38,7 @@ t_args flag_inicial(t_args strct, const char *inpt)
 	{
 		if(inpt[strct.i] == '-')
 			strct.minus = 1;
-		if(inpt[strct.i++] == '0')
+		if(inpt[strct.i++] == '0' && strct.minus == 0)
 			strct.zero = 1;
 	}
 	return (strct);
@@ -96,12 +91,14 @@ t_args type_inicial (t_args strct, const char *inpt)
 	return (strct);
 }
 
-void print_inicial(t_args strct, va_list args)
+t_args print_inicial(t_args strct, va_list args)
 {
+	if(strct.type == 0)
+		strct.type = -1;
 	if(strct.type == 'c')
 		ft_print_char(va_arg(args, int), strct);
 	if(strct.type == 's')
-		ft_print_string(va_arg(args, char *), strct);
+		strct = ft_print_string(va_arg(args, char *), strct);
 	if(strct.type == 'p')
 		ft_print_p(va_arg(args, unsigned long long int));
 	if(strct.type == 'd')
@@ -114,27 +111,33 @@ void print_inicial(t_args strct, va_list args)
 		ft_print_x(va_arg(args, int), strct);
 	if(strct.type == 'X')
 		ft_print_X(va_arg(args, int), strct);
-
+	if(strct.type == '%')
+		strct = ft_print_perc(strct);
+	return (strct);
 }
 
-void primary_inicial(const char *inpt, t_args strct, va_list args)
+t_args primary_inicial(const char *inpt, t_args strct, va_list args)
 {
 	strct.i = 0;
 	
-	while (inpt[strct.i])
+	while (strct.i < (int)ft_strlen(inpt))
 	{
-		while (inpt[strct.i] != '%' && inpt[strct.i])
+		while (inpt[strct.i] != '%' && inpt[strct.i] && strct.type != -1)
+		{
 			ft_putchar_fd(inpt[strct.i++], 1);
+			strct.retval++;
+		}
 		strct = ft_strct_zero(strct);
-		if(inpt[strct.i])
+		if(strct.i < (int)ft_strlen(inpt))
 		{
 			strct = flag_inicial(strct, inpt);
 			strct = width_inicial(strct, inpt, args);
 			strct = accuracy_inicial(strct, inpt, args);
 			strct = type_inicial(strct, inpt);
-			print_inicial(strct, args);
+			strct = print_inicial(strct, args);
 		}
 	}
+	return (strct);
 }
 
 int ft_printf(const char *inpt, ...)
@@ -144,13 +147,15 @@ int ft_printf(const char *inpt, ...)
 
 	va_start(args, inpt);
 	strct = ft_strct_inicial();
-	primary_inicial(inpt, strct, args);
-	return (0);
+	strct = primary_inicial(inpt, strct, args);
+	return (strct.retval);
 }
 
-int main(void)
+/*int main()
 {
-	printf("qwerty %5X|\n", 161);
-	ft_printf("qwerty %5X|", 161);
+ 	int a;
+ 	//printf("%5\n");
+	a = ft_printf("%.7s", "hello");
+ 	printf("%i", a);
 	return 0;
-}
+}*/
