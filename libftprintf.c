@@ -66,6 +66,8 @@ t_args accuracy_inicial (t_args strct, const char *inpt, va_list args)
 	{
 		strct.acc_fl = 1;
 		strct.i++;
+		if(inpt[strct.i] != '*' && !(ft_isdigit(inpt[strct.i])))
+			strct.acc_fl = 2;
 		if(inpt[strct.i] == '*')
 		{
 			strct.accuracy = va_arg(args, int);
@@ -102,9 +104,9 @@ t_args print_inicial(t_args strct, va_list args)
 	if(strct.type == 'p')
 		ft_print_p(va_arg(args, unsigned long long int));
 	if(strct.type == 'd')
-		ft_print_d(va_arg(args, int), strct);
+		strct = ft_print_d(va_arg(args, int), strct);
 	if(strct.type == 'i')
-		ft_print_d(va_arg(args, int), strct);
+		strct = ft_print_d(va_arg(args, int), strct);
 	if(strct.type == 'u')
 		ft_print_u(va_arg(args, unsigned int), strct);
 	if(strct.type == 'x')
@@ -153,9 +155,11 @@ int ft_printf(const char *inpt, ...)
 
 /*int main()
 {
+	static char *s_hidden = "hi low\0don't print me lol\0";
  	int a;
- 	//printf("%5\n");
-	a = ft_printf("%.7s", "hello");
- 	printf("%i", a);
+ 	printf("%8.3i", 8375);
+ 	printf("\n");
+	a = ft_printf("%8.3i", 8375);
+ 	printf("\n%i", a);
 	return 0;
 }*/

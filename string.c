@@ -5,7 +5,17 @@ t_args ft_print_string(char *str, t_args strct)
 	int i;
 
 	i = 0;
-	strct.width -= ft_strlen(str);
+	if(!(str))
+		str = "(null)";
+	if(strct.accuracy > 0 && ((int)ft_strlen(str) > strct.accuracy))
+		strct.width -= strct.accuracy;
+	else if(strct.acc_fl <= 1)
+		strct.width -= ft_strlen(str);
+	while (strct.zero && strct.width > 0 && strct.width--)
+	{
+		ft_putchar_fd('0', 1);
+		strct.retval++;
+	}
 	while (!(strct.minus) && strct.width > 0 && strct.width--)
 	{
 		ft_putchar_fd(' ', 1);
