@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/gbrittan/CLionProjects/My_printf/char.c
+libftprintf.h
+/Users/gbrittan/CLionProjects/My_printf/libftprintf.h
+
 /Users/gbrittan/CLionProjects/My_printf/libft/libft.h
 unistd.h
 -
@@ -17,8 +21,4 @@ stdarg.h
 -
 libft/libft.h
 /Users/gbrittan/CLionProjects/My_printf/libft/libft.h
-
-/Users/gbrittan/CLionProjects/My_printf/string.c
-libftprintf.h
-/Users/gbrittan/CLionProjects/My_printf/libftprintf.h
 

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/char.c.o"
+  "CMakeFiles/ft_printf.dir/int_dec.c.o"
   "CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o"
   "CMakeFiles/ft_printf.dir/libft/ft_itoa.c.o"
   "CMakeFiles/ft_printf.dir/libft/ft_putchar_fd.c.o"

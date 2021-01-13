@@ -8,6 +8,7 @@ CFLAGS	= -Wall -Wextra -Werror -I $(INCL) -c
 SRC 	= libftprintf.c \
 		  char.c \
 		  string.c \
+		  int_dec.c \
 
 OBJ		= $(SRC:.c=.o)
 

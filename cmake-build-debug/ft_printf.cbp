@@ -81,6 +81,9 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/char.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/int_dec.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libft/ft_isdigit.c">
 			<Option target="ft_printf"/>
 		</Unit>

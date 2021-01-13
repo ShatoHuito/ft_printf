@@ -12,6 +12,7 @@ t_args ft_strct_inicial(void)
 	strct.accuracy = 0;
 	strct.acc_fl = 0;
 	strct.width = 0;
+	strct.pr_minus_fl = 0;
 
 	return (strct);
 }
@@ -24,6 +25,7 @@ t_args ft_strct_zero(t_args strct)
 	strct.accuracy = 0;
 	strct.acc_fl = 0;
 	strct.width = 0;
+	strct.pr_minus_fl = 0;
 
 	return (strct);
 }
@@ -108,7 +110,7 @@ t_args print_inicial(t_args strct, va_list args)
 	if(strct.type == 'i')
 		strct = ft_print_d(va_arg(args, int), strct);
 	if(strct.type == 'u')
-		ft_print_u(va_arg(args, unsigned int), strct);
+		strct = ft_print_u(va_arg(args, unsigned int), strct);
 	if(strct.type == 'x')
 		ft_print_x(va_arg(args, int), strct);
 	if(strct.type == 'X')
@@ -157,9 +159,9 @@ int ft_printf(const char *inpt, ...)
 {
 	static char *s_hidden = "hi low\0don't print me lol\0";
  	int a;
- 	printf("%8.3i", 8375);
+ 	printf("%.0u", 0);
  	printf("\n");
-	a = ft_printf("%8.3i", 8375);
+	a = ft_printf("%.0u", 0);
  	printf("\n%i", a);
 	return 0;
 }*/

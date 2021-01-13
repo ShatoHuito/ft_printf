@@ -170,6 +170,33 @@ char.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/char.c.s
 .PHONY : char.c.s
 
+int_dec.o: int_dec.c.o
+
+.PHONY : int_dec.o
+
+# target to build an object file
+int_dec.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/int_dec.c.o
+.PHONY : int_dec.c.o
+
+int_dec.i: int_dec.c.i
+
+.PHONY : int_dec.i
+
+# target to preprocess a source file
+int_dec.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/int_dec.c.i
+.PHONY : int_dec.c.i
+
+int_dec.s: int_dec.c.s
+
+.PHONY : int_dec.s
+
+# target to generate assembly for a file
+int_dec.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/int_dec.c.s
+.PHONY : int_dec.c.s
+
 libft/ft_isdigit.o: libft/ft_isdigit.c.o
 
 .PHONY : libft/ft_isdigit.o
@@ -479,6 +506,9 @@ help:
 	@echo "... char.o"
 	@echo "... char.i"
 	@echo "... char.s"
+	@echo "... int_dec.o"
+	@echo "... int_dec.i"
+	@echo "... int_dec.s"
 	@echo "... libft/ft_isdigit.o"
 	@echo "... libft/ft_isdigit.i"
 	@echo "... libft/ft_isdigit.s"
