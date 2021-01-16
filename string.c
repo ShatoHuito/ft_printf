@@ -1,57 +1,66 @@
 #include "libftprintf.h"
 
-t_args ft_print_string(char *str, t_args strct)
+t_args ft_print_string(char *str, t_args sct)
 {
 	int i;
 
 	i = 0;
 	if(!(str))
 		str = "(null)";
-	if(strct.accuracy > 0 && ((int)ft_strlen(str) > strct.accuracy))
-		strct.width -= strct.accuracy;
-	else if(strct.acc_fl <= 1)
-		strct.width -= ft_strlen(str);
-	while (strct.zero && strct.width > 0 && strct.width--)
+	if(sct.acc > 0 && ((int)ft_strlen(str) > sct.acc))
+		sct.width -= sct.acc;
+	else if(sct.acc_fl <= 1)
+		sct.width -= ft_strlen(str);
+	while (sct.zero && sct.width > 0 && sct.width--)
 	{
 		ft_putchar_fd('0', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	while (!(strct.minus) && strct.width > 0 && strct.width--)
+	while (!(sct.minus) && sct.width > 0 && sct.width--)
 	{
 		ft_putchar_fd(' ', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	if(!(strct.acc_fl))
+	if(!(sct.acc_fl))
 	{
 		ft_putstr_fd(str, 1);
-		strct.retval += ft_strlen(str);
+		sct.retval += ft_strlen(str);
 	}
 	else
-		while(strct.accuracy && str[i] && strct.accuracy--)
+		while(sct.acc && str[i] && sct.acc--)
 		{
 			ft_putchar_fd(str[i++], 1);
-			strct.retval++;
+			sct.retval++;
 		}
-	while (strct.minus && strct.width > 0 && strct.width--)
+	while (sct.minus && sct.width > 0 && sct.width--)
 	{
 		ft_putchar_fd(' ', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	return (strct);
+	return (sct);
 }
 
-void ft_print_x(int c, t_args strct)
+
+t_args ft_print_x(unsigned int c, t_args sct)
 {
-	int d;
+	unsigned int d;
 	int i;
 
 	d = c;
 	i = 1;
+	if(c == 0 && sct.acc_fl && sct.acc == 0 && sct.width == 0)
+		i = 0;
 	while((c / 16) > 0 && i++)
 		c = c / 16;
-	char str[i];
-	strct.width -= i;
-	strct.accuracy -= i;
+	char str[i + 1];
+	str[i] = '\0';
+	sct.retval = sct.retval + i;
+	if(sct.acc && sct.width > sct.acc && sct.acc > i)
+		sct.width = sct.width - (sct.acc - i);
+	if(sct.width > 0)
+		sct.width -= i;
+	if(sct.acc > 0)
+		sct.acc -= i;
 	i--;
 	while (i >= 0)
 	{
@@ -62,75 +71,93 @@ void ft_print_x(int c, t_args strct)
 		i--;
 		d = d / 16;
 	}
-	while (strct.acc_fl && strct.accuracy >= 0 && strct.accuracy--)
-		ft_putchar_fd('0', 1);
-	if(strct.zero)
-		while (strct.zero && strct.width >= 0 && strct.width--)
+	if(sct.zero && !(sct.acc_fl))
+		while (sct.zero && sct.width >= 0 && sct.width-- && sct.retval++)
 			ft_putchar_fd('0', 1);
 	else
-		while (!(strct.minus) && strct.width >= 0 && strct.width--)
+		while (!(sct.minus) && sct.width >= 0 && sct.width-- && sct.retval++)
 			ft_putchar_fd(' ', 1);
-	ft_putstr_fd(str, 1);
-	while (strct.minus && strct.width >= 0 && strct.width--)
+	if(sct.acc > 0)
+		while (sct.acc >= 0 && sct.acc-- && sct.retval++)
+			ft_putchar_fd('0', 1);
+	if(!(c == 0 && sct.acc_fl && sct.acc == 0))
+		ft_putstr_fd(str, 1);
+	while (sct.minus && sct.width >= 0 && sct.width-- && sct.retval++)
 		ft_putchar_fd(' ', 1);
+	if(sct.acc_fl && c == 0 && sct.acc == 0 && sct.retval != 0)
+		ft_putchar_fd(' ', 1);
+	return (sct);
 }
 
-void ft_print_X(int c, t_args strct)
+t_args ft_print_X(unsigned int c, t_args sct)
 {
-	int d;
+	unsigned int d;
 	int i;
 
 	d = c;
 	i = 1;
-	while((c / 16) > 0 && i++)
+	if (c == 0 && sct.acc_fl && sct.acc == 0 && sct.width == 0)
+		i = 0;
+	while ((c / 16) > 0 && i++)
 		c = c / 16;
-	char str[i];
-	strct.width -= i;
-	strct.accuracy -= i;
+	char str[i + 1];
+	str[i] = '\0';
+	sct.retval = sct.retval + i;
+	if (sct.acc && sct.width > sct.acc && sct.acc > i)
+		sct.width = sct.width - (sct.acc - i);
+	if (sct.width > 0)
+		sct.width -= i;
+	if (sct.acc > 0)
+		sct.acc -= i;
 	i--;
 	while (i >= 0)
 	{
-		if(d % 16 < 10)
+		if (d % 16 < 10)
 			str[i] = (d % 16) + 48;
 		else
 			str[i] = (d % 16) + 55;
 		i--;
 		d = d / 16;
 	}
-	while (strct.acc_fl && strct.accuracy >= 0 && strct.accuracy--)
-		ft_putchar_fd('0', 1);
-	if(strct.zero)
-		while (strct.zero && strct.width >= 0 && strct.width--)
+	if (sct.zero && !(sct.acc_fl))
+		while (sct.zero && sct.width >= 0 && sct.width-- && sct.retval++)
 			ft_putchar_fd('0', 1);
 	else
-		while (!(strct.minus) && strct.width >= 0 && strct.width--)
+		while (!(sct.minus) && sct.width >= 0 && sct.width-- && sct.retval++)
 			ft_putchar_fd(' ', 1);
-	ft_putstr_fd(str, 1);
-	while (strct.minus && strct.width >= 0 && strct.width--)
+	if (sct.acc > 0)
+		while (sct.acc >= 0 && sct.acc-- && sct.retval++)
+			ft_putchar_fd('0', 1);
+	if (!(c == 0 && sct.acc_fl && sct.acc == 0))
+		ft_putstr_fd(str, 1);
+	while (sct.minus && sct.width >= 0 && sct.width-- && sct.retval++)
 		ft_putchar_fd(' ', 1);
+	if (sct.acc_fl && c == 0 && sct.acc == 0 && sct.retval != 0)
+		ft_putchar_fd(' ', 1);
+	return (sct);
 }
 
-t_args ft_print_perc(t_args strct)
+t_args ft_print_perc(t_args sct)
 {
-	strct.width -= 1;
-	if(strct.zero)
-		while (strct.zero && strct.width >= 0 && strct.width--)
+	sct.width -= 1;
+	if(sct.zero)
+		while (sct.zero && sct.width >= 0 && sct.width--)
 		{
 			ft_putchar_fd('0', 1);
-			strct.retval++;
+			sct.retval++;
 		}
-	while (!(strct.minus) && strct.width >= 0 && strct.width--)
+	while (!(sct.minus) && sct.width >= 0 && sct.width--)
 	{
 		ft_putchar_fd(' ', 1);
-		strct.retval++;
+		sct.retval++;
 	}
 	write(1, "%", 1);
-	strct.retval++;
-	while (strct.minus && strct.width >= 0 && strct.width--)
+	sct.retval++;
+	while (sct.minus && sct.width >= 0 && sct.width--)
 	{
 		ft_putchar_fd(' ', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	return (strct);
+	return (sct);
 }
 

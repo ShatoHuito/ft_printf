@@ -1,24 +1,34 @@
 #include "libftprintf.h"
 
-void ft_print_char(int c, t_args strct)
+void ft_print_char(int c, t_args sct)
 {
-	while (!(strct.minus) && strct.width > 1 && strct.width--)
+	while (!(sct.minus) && sct.width > 1 && sct.width--)
 		ft_putchar_fd(' ', 1);
 	write(1, &c, 1);
-	while (strct.minus && strct.width > 1 && strct.width--)
+	while (sct.minus && sct.width > 1 && sct.width--)
 		ft_putchar_fd(' ', 1);
 }
 
-void ft_print_p(unsigned long long int c)
+t_args ft_print_p(unsigned long long int c, t_args sct)
 {
 	unsigned long long int d;
 	int i;
 
 	d = c;
 	i = 1;
+	if (c == 0 && sct.acc_fl && sct.acc == 0)
+		i = 0;
 	while((c / 16) > 0 && i++)
 		c = c / 16;
-	char str[i];
+	sct.retval = sct.retval + 2 + i;
+	if (sct.acc && sct.width > sct.acc && sct.acc > i)
+		sct.width = sct.width - (sct.acc - i);
+	if (sct.width > 0)
+		sct.width -= (i + 2);
+	if (sct.acc > 0)
+		sct.acc -= i;
+	char str[i + 1];
+	str[i] = '\0';
 	i--;
 	while (i >= 0)
 	{
@@ -29,26 +39,40 @@ void ft_print_p(unsigned long long int c)
 		i--;
 		d = d / 16;
 	}
+	if (sct.zero && !(sct.acc_fl))
+		while (sct.zero && sct.width >= 0 && sct.width-- && sct.retval++)
+			ft_putchar_fd('0', 1);
+	else
+		while (!(sct.minus) && sct.width >= 0 && sct.width-- && sct.retval++)
+			ft_putchar_fd(' ', 1);
 	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(str, 1);
+	if (sct.acc > 0)
+		while (sct.acc >= 0 && sct.acc-- && sct.retval++)
+			ft_putchar_fd('0', 1);
+
+	if (!(c == 0 && sct.acc_fl && sct.acc == 0))
+		ft_putstr_fd(str, 1);
+	while (sct.minus && sct.width >= 0 && sct.width-- && sct.retval++)
+		ft_putchar_fd(' ', 1);
+	//if (sct.acc_fl && c == 0 && sct.acc == 0 && sct.retval != 0)
+		//ft_putchar_fd(' ', 1);
+	return (sct);
 }
 
 
-t_args 	putnbr_u(unsigned int n, int fd, t_args strct)
+t_args 	putnbr_u(unsigned int n, int fd, t_args sct)
 {
 	char c;
 
 	if (n / 10)
-		putnbr_u(n / 10, fd, strct);
+		putnbr_u(n / 10, fd, sct);
 	c = n % 10 + 48;
-	if(strct.accuracy || n != 0 || !(strct.acc_fl))
+	if(sct.acc || n != 0 || !(sct.acc_fl))
 		write(fd, &c, 1);
-	//if(n == 0 && strct.acc_fl)
-		//strct.retval++;
-	return (strct);
+	return (sct);
 }
 
-t_args ft_print_u(unsigned int c, t_args strct)
+t_args ft_print_u(unsigned int c, t_args sct)
 {
 	int i;
 	unsigned int A;
@@ -56,42 +80,49 @@ t_args ft_print_u(unsigned int c, t_args strct)
 	A = c;
 	i = 1;
 
-	if(c != 0 || !(strct.acc_fl))
-		strct.retval++;
-	while ((A = A / 10) > 0 && strct.retval++)
+	if(c != 0 || !(sct.acc_fl))
+		sct.retval++;
+	while ((A = A / 10) > 0 && sct.retval++)
 		i++;
 
-	if(strct.accuracy && strct.width > strct.accuracy && strct.accuracy > i)
-		strct.width = strct.width - (strct.accuracy - i);
-	if(strct.width > 0)
-		strct.width -= i;
-	if(strct.accuracy > 0)
-		strct.accuracy -= i;
-	if(strct.zero && !(strct.acc_fl))
-		while (strct.zero && strct.width >= 0 && strct.width--)
+	if(sct.acc && sct.width > sct.acc && sct.acc > i)
+		sct.width = sct.width - (sct.acc - i);
+	if(sct.width > 0)
+		sct.width -= i;
+	if(sct.acc > 0)
+		sct.acc -= i;
+	if(sct.zero && !(sct.acc_fl))
+		while (sct.zero && sct.width >= 0 && sct.width--)
 		{
 			ft_putchar_fd('0', 1);
-			strct.retval++;
+			sct.retval++;
 		}
 	else
-		while (!(strct.minus) && strct.width >= 0 && strct.width--)
+		while (!(sct.minus) && sct.width >= 0 && sct.width--)
 		{
 			ft_putchar_fd(' ', 1);
-			strct.retval++;
+			sct.retval++;
 		}
-	if(strct.accuracy > 0)
-		while (strct.accuracy >= 0 && strct.accuracy--)
+	if(sct.acc > 0)
+		while (sct.acc >= 0 && sct.acc--)
 		{
 			ft_putchar_fd('0', 1);
-			strct.retval++;
+			sct.retval++;
 		}
-	strct = putnbr_u(c, 1, strct);
-	while (strct.minus && strct.width >= 0 && strct.width--)
+	sct = putnbr_u(c, 1, sct);
+	while (sct.minus && sct.width >= 0 && sct.width--)
 	{
 		ft_putchar_fd(' ', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	return (strct);
+	if(sct.acc_fl && c == 0 && sct.acc != 0)
+		sct.retval++;
+	if(sct.acc_fl && c == 0 && sct.acc == 0 && sct.retval != 0)
+	{
+		ft_putchar_fd(' ', 1);
+		sct.retval++;
+	}
+	return (sct);
 }
 
 

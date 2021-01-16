@@ -1,88 +1,88 @@
 #include "libftprintf.h"
 
-t_args ft_printf_d1(int c, int minus, t_args strct)
+t_args ft_printf_d1(int c, int minus, t_args sct)
 {
 	int i;
 
-	if(c != 0 || !(strct.acc_fl))
+	if(c != 0 || !(sct.acc_fl))
 		i = 1;
 	else
 		i = 0;
-	while ((c = c / 10) > 0 && strct.retval++)
+	while ((c = c / 10) > 0 && sct.retval++)
 		i++;
-	if(strct.accuracy && strct.width > strct.accuracy && strct.accuracy > i)
-		strct.width = strct.width - (strct.accuracy - i);
-	if(strct.zero == 0 && minus == 1 && strct.acc_fl == 0)
+	if(sct.acc && sct.width > sct.acc && sct.acc > i)
+		sct.width = sct.width - (sct.acc - i);
+	if(sct.zero == 0 && minus == 1 && sct.acc_fl == 0)
 		i++;
-	if(strct.width > 0)
-		strct.width -= i;
-	if(strct.accuracy > 0)
-		strct.accuracy -= i;
-	if (minus == 1 && strct.acc_fl && strct.width == 0)
+	if(sct.width > 0)
+		sct.width -= i;
+	if(sct.acc > 0)
+		sct.acc -= i;
+	if (minus == 1 && sct.acc_fl && sct.width == 0)
 	{
 		ft_putchar_fd('-', 1);
-		strct.pr_minus_fl = 1;
+		sct.pr_minus_fl = 1;
 	}
-	return (strct);
+	return (sct);
 }
 
-t_args ft_printf_d2(int minus, t_args strct)
+t_args ft_printf_d2(int minus, t_args sct)
 {
-	if(strct.zero && !(strct.acc_fl))
+	if(sct.zero && !(sct.acc_fl))
 	{
 		if (minus == 1)
 		{
 			ft_putchar_fd('-', 1);
-			strct.width--;
+			sct.width--;
 		}
-		while (strct.zero && strct.width >= 0 && strct.width--)
+		while (sct.zero && sct.width >= 0 && sct.width--)
 		{
 			ft_putchar_fd('0', 1);
-			strct.retval++;
+			sct.retval++;
 		}
 	}
 	else
 	{
-		if ((minus == 1 && strct.acc_fl) && strct.accuracy)
-			strct.width--;
-		while (!(strct.minus) && strct.width >= 0 && strct.width--)
+		if ((minus == 1 && sct.acc_fl) && sct.acc)
+			sct.width--;
+		while (!(sct.minus) && sct.width >= 0 && sct.width--)
 		{
 			ft_putchar_fd(' ', 1);
-			strct.retval++;
+			sct.retval++;
 		}
-		if (minus == 1 && strct.pr_minus_fl != 1)
+		if (minus == 1 && sct.pr_minus_fl != 1)
 			ft_putchar_fd('-', 1);
 	}
-	return (strct);
+	return (sct);
 }
 
-t_args ft_print_d(int c, t_args strct)
+t_args ft_print_d(int c, t_args sct)
 {
 	int minus;
 
 	minus = 0;
-	if(c != 0 || !(strct.acc_fl))
-		strct.retval++;
-	if(c < 0 && strct.retval++)
+	if(c != 0 || !(sct.acc_fl))
+		sct.retval++;
+	if(c < 0 && sct.retval++)
 	{
 		c = c * -1;
 		minus = 1;
 	}
-	strct = ft_printf_d1(c, minus, strct);
-	strct = ft_printf_d2(minus, strct);
+	sct = ft_printf_d1(c, minus, sct);
+	sct = ft_printf_d2(minus, sct);
 
-	while (strct.acc_fl && strct.accuracy > 0 && strct.accuracy--) //del >=
+	while (sct.acc_fl && sct.acc > 0 && sct.acc--) //del >=
 	{
 		ft_putchar_fd('0', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	if(strct.accuracy || c != 0 || !(strct.acc_fl))
+	if(sct.acc || c != 0 || !(sct.acc_fl))
 		ft_putnbr_fd(c, 1);
-	while (strct.minus && strct.width >= 0 && strct.width--)
+	while (sct.minus && sct.width >= 0 && sct.width--)
 	{
 		ft_putchar_fd(' ', 1);
-		strct.retval++;
+		sct.retval++;
 	}
-	return (strct);
+	return (sct);
 }
 

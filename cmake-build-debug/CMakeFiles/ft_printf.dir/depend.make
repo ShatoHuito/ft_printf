@@ -5,6 +5,10 @@ CMakeFiles/ft_printf.dir/char.c.o: ../char.c
 CMakeFiles/ft_printf.dir/char.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/char.c.o: ../libftprintf.h
 
+CMakeFiles/ft_printf.dir/int_dec.c.o: ../int_dec.c
+CMakeFiles/ft_printf.dir/int_dec.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/int_dec.c.o: ../libftprintf.h
+
 CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o: ../libft/ft_isdigit.c
 CMakeFiles/ft_printf.dir/libft/ft_isdigit.c.o: ../libft/libft.h
 
