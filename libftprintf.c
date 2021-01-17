@@ -13,6 +13,8 @@ t_args ft_sct_inicial(void)
 	sct.acc_fl = 0;
 	sct.width = 0;
 	sct.pr_minus_fl = 0;
+	sct.flag1 = 0;
+	sct.flag2 = 0;
 
 	return (sct);
 }
@@ -26,6 +28,8 @@ t_args ft_sct_zero(t_args sct)
 	sct.acc_fl = 0;
 	sct.width = 0;
 	sct.pr_minus_fl = 0;
+	sct.flag1 = 0;
+	sct.flag2 = 0;
 
 	return (sct);
 }
@@ -59,6 +63,13 @@ t_args width_inicial(t_args sct, const char *inpt, va_list args)
 			sct.width = sct.width * 10 + (inpt[sct.i] - 48);
 			sct.i++;
 		}
+	if(sct.width < 0)
+	{
+		sct.minus = 1;
+		sct.width = sct.width * -1;
+		sct.zero = 0;
+		sct.flag1 = 1;
+	}
 	return (sct);
 }
 
@@ -82,6 +93,11 @@ t_args accuracy_inicial (t_args sct, const char *inpt, va_list args)
 				sct.i++;
 			}
 	}
+	if(sct.acc < 0)
+	{
+	//	sct.acc = sct.acc * -1;
+		sct.flag2 = 1;
+	}
 	return (sct);
 }
 
@@ -90,7 +106,10 @@ t_args type_inicial (t_args sct, const char *inpt)
 	char *types;
 
 	types = "cspdiuxX%";
-	sct.type = *ft_strchr(types, inpt[sct.i]);
+	if(ft_strchr(types, inpt[sct.i]) == NULL)
+		return (sct);
+	else
+		sct.type = *ft_strchr(types, inpt[sct.i]);
 	sct.i++;
 	return (sct);
 }
@@ -98,9 +117,12 @@ t_args type_inicial (t_args sct, const char *inpt)
 t_args print_inicial(t_args sct, va_list args)
 {
 	if(sct.type == 0)
+	{
 		sct.type = -1;
+		return (sct);
+	}
 	if(sct.type == 'c')
-		ft_print_char(va_arg(args, int), sct);
+		sct = ft_print_char(va_arg(args, int), sct);
 	if(sct.type == 's')
 		sct = ft_print_string(va_arg(args, char *), sct);
 	if(sct.type == 'p')
@@ -124,7 +146,7 @@ t_args primary_inicial(const char *inpt, t_args sct, va_list args)
 {
 	sct.i = 0;
 	
-	while (sct.i < (int)ft_strlen(inpt))
+	while (sct.i < (int)ft_strlen(inpt) && sct.type != -1)
 	{
 		while (inpt[sct.i] != '%' && inpt[sct.i] && sct.type != -1)
 		{
@@ -155,13 +177,33 @@ int ft_printf(const char *inpt, ...)
 	return (sct.retval);
 }
 
-/*int main()
+int main()
 {
-	static char *s_hidden = "hi low\0don't print me lol\0";
- 	int a;
- 	printf("%2.9p", 1234);
+    int     a = 2;
+    int     b = -2;
+    char    c = 'a';
+    int     d = 2147483647;
+    int     e = -2147483648;
+    int     f = 42;
+    int     g = 25;
+    int     h = 4200;
+    int     i = 8;
+    int     j = -12;
+    int     k = 123456789;
+    int     l = 0;
+    int     m = -12345678;
+    char    *n = "abcdefghijklmnop";
+    char    *o = "-a";
+    char    *p = "-12";
+    char    *q = "0";
+    char    *r = "%%";
+    char    *s = "-2147483648";
+    char    *t = "0x12345678";
+    char    *u = "-0";
+    int HHH;
+ 	printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
  	printf("\n");
-	a = ft_printf("%2.9p", 1234);
- 	printf("\n%i", a);
+	HHH = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+ 	printf("\n%i", HHH);
 	return 0;
-}*/
+}

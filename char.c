@@ -1,12 +1,20 @@
 #include "libftprintf.h"
 
-void ft_print_char(int c, t_args sct)
+t_args ft_print_char(int c, t_args sct)
 {
 	while (!(sct.minus) && sct.width > 1 && sct.width--)
+	{
 		ft_putchar_fd(' ', 1);
+		sct.retval++;
+	}
 	write(1, &c, 1);
+	sct.retval++;
 	while (sct.minus && sct.width > 1 && sct.width--)
+	{
 		ft_putchar_fd(' ', 1);
+		sct.retval++;
+	}
+	return (sct);
 }
 
 t_args ft_print_p(unsigned long long int c, t_args sct)
