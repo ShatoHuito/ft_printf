@@ -66,8 +66,8 @@ t_args width_inicial(t_args sct, const char *inpt, va_list args)
 	if(sct.width < 0)
 	{
 		sct.minus = 1;
-		sct.width = sct.width * -1;
 		sct.zero = 0;
+		sct.width = sct.width * -1;
 		sct.flag1 = 1;
 	}
 	return (sct);
@@ -95,7 +95,7 @@ t_args accuracy_inicial (t_args sct, const char *inpt, va_list args)
 	}
 	if(sct.acc < 0)
 	{
-	//	sct.acc = sct.acc * -1;
+		sct.acc = 0;
 		sct.flag2 = 1;
 	}
 	return (sct);
@@ -177,33 +177,35 @@ int ft_printf(const char *inpt, ...)
 	return (sct.retval);
 }
 
-int main()
+/*int main()
 {
-    int     a = 2;
-    int     b = -2;
-    char    c = 'a';
-    int     d = 2147483647;
-    int     e = -2147483648;
-    int     f = 42;
-    int     g = 25;
-    int     h = 4200;
-    int     i = 8;
-    int     j = -12;
-    int     k = 123456789;
-    int     l = 0;
-    int     m = -12345678;
-    char    *n = "abcdefghijklmnop";
-    char    *o = "-a";
-    char    *p = "-12";
-    char    *q = "0";
-    char    *r = "%%";
-    char    *s = "-2147483648";
-    char    *t = "0x12345678";
-    char    *u = "-0";
-    int HHH;
- 	printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
- 	printf("\n");
-	HHH = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
- 	printf("\n%i", HHH);
+	int     a = -4;
+	int     b = 0;
+	char    c = 'a';
+	int     d = 2147483647;
+	int     e = -2147483648;
+	int     f = 42;
+	int     g = 25;
+	int     h = 4200;
+	int     i = 8;
+	int     j = -12;
+	int     k = 123456789;
+	int     l = 0;
+	int     m = -12345678;
+	char    *n = "abcdefghijklmnop";
+	char    *o = "-a";
+	char    *p = "-12";
+	char    *q = "0";
+	char    *r = "%%";
+	char    *s = "-2147483648";
+	char    *t = "0x12345678";
+	char    *u = "-0";
+
+	printf("%3d, %3d",e, d);
+	printf("\n");
+	a = ft_printf("%3d, %3d", e, d);
+	printf("\n%d", a);
+
+
 	return 0;
-}
+}*/

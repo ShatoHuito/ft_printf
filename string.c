@@ -21,7 +21,7 @@ t_args ft_print_string(char *str, t_args sct)
 		ft_putchar_fd(' ', 1);
 		sct.retval++;
 	}
-	if(!(sct.acc_fl))
+	if(!(sct.acc_fl) || sct.flag2)
 	{
 		ft_putstr_fd(str, 1);
 		sct.retval += ft_strlen(str);
