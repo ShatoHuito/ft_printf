@@ -9,6 +9,8 @@ SRC 	= libftprintf.c \
 		  char.c \
 		  string.c \
 		  int_dec.c \
+		  unsigned.c \
+		  x_X.c \
 
 OBJ		= $(SRC:.c=.o)
 

@@ -494,6 +494,60 @@ string.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/string.c.s
 .PHONY : string.c.s
 
+unsigned.o: unsigned.c.o
+
+.PHONY : unsigned.o
+
+# target to build an object file
+unsigned.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/unsigned.c.o
+.PHONY : unsigned.c.o
+
+unsigned.i: unsigned.c.i
+
+.PHONY : unsigned.i
+
+# target to preprocess a source file
+unsigned.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/unsigned.c.i
+.PHONY : unsigned.c.i
+
+unsigned.s: unsigned.c.s
+
+.PHONY : unsigned.s
+
+# target to generate assembly for a file
+unsigned.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/unsigned.c.s
+.PHONY : unsigned.c.s
+
+x_X.o: x_X.c.o
+
+.PHONY : x_X.o
+
+# target to build an object file
+x_X.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/x_X.c.o
+.PHONY : x_X.c.o
+
+x_X.i: x_X.c.i
+
+.PHONY : x_X.i
+
+# target to preprocess a source file
+x_X.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/x_X.c.i
+.PHONY : x_X.c.i
+
+x_X.s: x_X.c.s
+
+.PHONY : x_X.s
+
+# target to generate assembly for a file
+x_X.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/x_X.c.s
+.PHONY : x_X.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -542,6 +596,12 @@ help:
 	@echo "... string.o"
 	@echo "... string.i"
 	@echo "... string.s"
+	@echo "... unsigned.o"
+	@echo "... unsigned.i"
+	@echo "... unsigned.s"
+	@echo "... x_X.o"
+	@echo "... x_X.i"
+	@echo "... x_X.s"
 .PHONY : help
 
 

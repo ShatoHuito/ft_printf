@@ -15,6 +15,8 @@ t_args ft_sct_inicial(void)
 	sct.pr_minus_fl = 0;
 	sct.flag1 = 0;
 	sct.flag2 = 0;
+	sct.flag3 = 0;
+	sct.spcasefl = 0;
 
 	return (sct);
 }
@@ -30,6 +32,8 @@ t_args ft_sct_zero(t_args sct)
 	sct.pr_minus_fl = 0;
 	sct.flag1 = 0;
 	sct.flag2 = 0;
+	sct.flag3 = 0;
+	sct.spcasefl = 0;
 
 	return (sct);
 }
@@ -93,10 +97,13 @@ t_args accuracy_inicial (t_args sct, const char *inpt, va_list args)
 				sct.i++;
 			}
 	}
+	if(sct.acc_fl && !(sct.acc))
+		sct.flag3 = 1;
 	if(sct.acc < 0)
 	{
 		sct.acc = 0;
 		sct.flag2 = 1;
+		sct.acc_fl = 0;
 	}
 	return (sct);
 }
@@ -179,8 +186,8 @@ int ft_printf(const char *inpt, ...)
 
 /*int main()
 {
-	int     a = -4;
-	int     b = 0;
+	int     a = -2;
+	int     b = 1;
 	char    c = 'a';
 	int     d = 2147483647;
 	int     e = -2147483648;
@@ -200,10 +207,11 @@ int ft_printf(const char *inpt, ...)
 	char    *s = "-2147483648";
 	char    *t = "0x12345678";
 	char    *u = "-0";
+	char *s_hidden = "hi low";
 
-	printf("%3d, %3d",e, d);
+	printf("%09s", s_hidden);
 	printf("\n");
-	a = ft_printf("%3d, %3d", e, d);
+	a = ft_printf("%09s", s_hidden);
 	printf("\n%d", a);
 
 

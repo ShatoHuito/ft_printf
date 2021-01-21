@@ -44,3 +44,11 @@ CMakeFiles/ft_printf.dir/string.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/string.c.o: ../libftprintf.h
 CMakeFiles/ft_printf.dir/string.c.o: ../string.c
 
+CMakeFiles/ft_printf.dir/unsigned.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/unsigned.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/unsigned.c.o: ../unsigned.c
+
+CMakeFiles/ft_printf.dir/x_X.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/x_X.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/x_X.c.o: ../x_X.c
+

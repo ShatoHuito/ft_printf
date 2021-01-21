@@ -6,14 +6,16 @@
 
 #IncludeRegexTransform: 
 
-/Users/gbrittan/CLionProjects/My_printf/int_dec.c
-libftprintf.h
-/Users/gbrittan/CLionProjects/My_printf/libftprintf.h
-
 /Users/gbrittan/CLionProjects/My_printf/libft/libft.h
 unistd.h
 -
 stdlib.h
+-
+
+/Users/gbrittan/CLionProjects/My_printf/libftprintf.c
+libftprintf.h
+/Users/gbrittan/CLionProjects/My_printf/libftprintf.h
+stdio.h
 -
 
 /Users/gbrittan/CLionProjects/My_printf/libftprintf.h

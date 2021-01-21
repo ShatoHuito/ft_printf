@@ -17,6 +17,8 @@ typedef struct	s_args
 	 int pr_minus_fl;
 	 int flag1;
 	 int flag2;
+	 int flag3;
+	 int spcasefl;
 }				t_args;
 
 int ft_printf(const char *inpt, ...);

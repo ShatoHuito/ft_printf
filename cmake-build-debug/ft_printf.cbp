@@ -120,6 +120,12 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/string.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/unsigned.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/x_X.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

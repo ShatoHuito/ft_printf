@@ -44,3 +44,11 @@ CMakeFiles/ft_printf.dir/string.c.o
  /Users/gbrittan/CLionProjects/My_printf/libft/libft.h
  /Users/gbrittan/CLionProjects/My_printf/libftprintf.h
  /Users/gbrittan/CLionProjects/My_printf/string.c
+CMakeFiles/ft_printf.dir/unsigned.c.o
+ /Users/gbrittan/CLionProjects/My_printf/libft/libft.h
+ /Users/gbrittan/CLionProjects/My_printf/libftprintf.h
+ /Users/gbrittan/CLionProjects/My_printf/unsigned.c
+CMakeFiles/ft_printf.dir/x_X.c.o
+ /Users/gbrittan/CLionProjects/My_printf/libft/libft.h
+ /Users/gbrittan/CLionProjects/My_printf/libftprintf.h
+ /Users/gbrittan/CLionProjects/My_printf/x_X.c

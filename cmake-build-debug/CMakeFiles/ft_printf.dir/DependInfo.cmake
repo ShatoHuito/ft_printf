@@ -17,6 +17,8 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/gbrittan/CLionProjects/My_printf/libft/ft_strlen.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_strlen.c.o"
   "/Users/gbrittan/CLionProjects/My_printf/libftprintf.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libftprintf.c.o"
   "/Users/gbrittan/CLionProjects/My_printf/string.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/string.c.o"
+  "/Users/gbrittan/CLionProjects/My_printf/unsigned.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/unsigned.c.o"
+  "/Users/gbrittan/CLionProjects/My_printf/x_X.c" "/Users/gbrittan/CLionProjects/My_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/x_X.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
