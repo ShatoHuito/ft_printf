@@ -117,6 +117,9 @@
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/libftprintf.h">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/sct_inic.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/gbrittan/CLionProjects/My_printf/string.c">
 			<Option target="ft_printf"/>
 		</Unit>

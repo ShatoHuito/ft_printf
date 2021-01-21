@@ -467,6 +467,33 @@ libftprintf.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/libftprintf.c.s
 .PHONY : libftprintf.c.s
 
+sct_inic.o: sct_inic.c.o
+
+.PHONY : sct_inic.o
+
+# target to build an object file
+sct_inic.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/sct_inic.c.o
+.PHONY : sct_inic.c.o
+
+sct_inic.i: sct_inic.c.i
+
+.PHONY : sct_inic.i
+
+# target to preprocess a source file
+sct_inic.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/sct_inic.c.i
+.PHONY : sct_inic.c.i
+
+sct_inic.s: sct_inic.c.s
+
+.PHONY : sct_inic.s
+
+# target to generate assembly for a file
+sct_inic.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/sct_inic.c.s
+.PHONY : sct_inic.c.s
+
 string.o: string.c.o
 
 .PHONY : string.o
@@ -593,6 +620,9 @@ help:
 	@echo "... libftprintf.o"
 	@echo "... libftprintf.i"
 	@echo "... libftprintf.s"
+	@echo "... sct_inic.o"
+	@echo "... sct_inic.i"
+	@echo "... sct_inic.s"
 	@echo "... string.o"
 	@echo "... string.i"
 	@echo "... string.s"

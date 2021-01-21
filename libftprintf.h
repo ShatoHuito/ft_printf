@@ -30,5 +30,10 @@ t_args ft_print_u(unsigned int c, t_args sct);
 t_args ft_print_x(unsigned int c, t_args sct);
 t_args ft_print_X(unsigned int c, t_args sct);
 t_args ft_print_perc(t_args sct);
+t_args ft_sct_inicial(void);
+t_args ft_sct_zero(t_args sct);
+t_args flag_inicial(t_args sct, const char *inpt);
+t_args width_inicial(t_args sct, const char *inpt, va_list args);
+t_args accuracy_inicial (t_args sct, const char *inpt, va_list args);
 
 #endif

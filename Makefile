@@ -11,6 +11,7 @@ SRC 	= libftprintf.c \
 		  int_dec.c \
 		  unsigned.c \
 		  x_X.c \
+		  sct_inic.c \
 
 OBJ		= $(SRC:.c=.o)
 
